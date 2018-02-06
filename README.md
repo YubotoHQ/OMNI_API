@@ -80,7 +80,7 @@ Request an API Key from our support team at support@yuboto.com. Your API Key dep
 
 This method allows you to send text messages to one or multiple recipients simultaneously. The maximum number of recipients you can send at one time is 1000.
 
-## Send Method [/omni/v1/Send{?phonenumbers}{?dateinToSend}{?timeinToSend}{?dateinToSend}{?dlr}{?callbackUrl}{?option1}{?option2}{?sms}{?viber}]
+## Send Method
 
 ### Send Method [POST]
 
@@ -190,7 +190,7 @@ The message info will be forwarded through a get request to the callback url. Th
      
          
         
-     ------------------------------------------------ <b>&#x2055;</b> Parameters text, buttonCaption + buttonAction and image make Viber Service Message content. There are 4 possible combinations of Viber Service Message content:
+   <b>&#x2055;</b> Parameters text, buttonCaption + buttonAction and image make Viber Service Message content. There are 4 possible combinations of Viber Service Message content:
      •   text only,
      •   image only,
      •   text + button,
@@ -204,34 +204,35 @@ The message info will be forwarded through a get request to the callback url. Th
 The request body is of type SendRequest.
 
    + Body
-            {
-                    callbackUrl = "http://test.com",
-                    dlr = true,
-                    option1 = "option 1",
-                    option2 = "option 2",
-                    phonenumber = { "306936XXXXXX", "306936XXXXXX" },
-                    dateinToSend = 20180101,
-                    timeinToSend = 1000,
-                    sms = new SmsObj
-                    {
-                        sender = "Demo",
-                        text = " This is a test sms fallback",
-                        validity = 100,
-                        typesms = "sms",
-                        priority = 1
-                    },
-                    viber = new ViberObj
-                    {
-                        sender = "Demo",
-                        text = " This is an omni viber message",
-                        validity = 15,
-                        image = "https://someurl/banner.jpg",
-                        buttonAction = "https://someurl/contact",
-                        buttonCaption = "Contact us",
-                        expiryText = "This viber message expired",
-                        priority = 0
-                    }
-            }
+    
+          {
+                      callbackUrl = "http://test.com",
+                      dlr = true,
+                      option1 = "option 1",
+                      option2 = "option 2",
+                      phonenumbers = { "306936XXXXXX", "306936XXXXXX" },
+                      dateinToSend = 20180101,
+                      timeinToSend = 1000,
+                      sms = new SmsObj
+                      {
+                          sender = "Demo",
+                          text = " This is a test sms fallback",
+                          validity = 100,
+                          typesms = "sms",
+                          priority = 1
+                      },
+                      viber = new ViberObj
+                      {
+                          sender = "Demo",
+                          text = " This is an omni viber message",
+                          validity = 15,
+                          image = "https://someurl/banner.jpg",
+                          buttonAction = "https://someurl/contact",
+                          buttonCaption = "Contact us",
+                          expiryText = "This viber message expired",
+                          priority = 0
+                      }
+                   }
        
 + Response
    The response body is of type SendResponse.
@@ -269,9 +270,9 @@ The request body is of type SendRequest.
 
 Using this method, you can retrieve information on sent text messages and check their status in real-time.
 
-## DLR Method [/omni/v1/Dlr{?id}]
+## DLR Method [/omni/v1/Dlr]
 
-### DLR Method [POST /omni/v1/Dlr{?id}]
+### DLR Method [POST /omni/v1/Dlr]
 
 <font size="5px"><b>Status of Messages</b></font>
 
@@ -389,7 +390,7 @@ The request body is of type DlrRequest.
 
 Through the following method you can request the cost of sending a simple SMS or Viber.
 
-## Cost Method [/omni/v1/Cost{?iso2}{?phonenumber}{?channel}]
+## Cost Method [/omni/v1/Cost]
 
 ### Cost Method [POST]
 
@@ -450,7 +451,7 @@ The request body is of type CostRequest.
 
 Using this method, you can retrieve the cost details of sending a simple SMS or Viber message for a specific iso2. The difference from Cost Method is that this method returns for a specific iso2, the mcc and mnc.
 
-## Cost Details Method [/omni/v1/CostDetails{?iso2}]
+## Cost Details Method [/omni/v1/CostDetails]
 
 ### Cost Details Method [POST]            
             
@@ -578,7 +579,7 @@ Through the following method you can retrieve information on your current balanc
 
 Through the following method you can cancel a scheduled message, before the scheduled date and time. You are able to cancel the sending of a message up to <b>three minutes</b> before the time it is scheduled to send.
 
-## Cancel Method [/omni/v1/Cancel{?id}]
+## Cancel Method [/omni/v1/Cancel]
 
 ### Cancel Method [POST]            
             
@@ -622,7 +623,7 @@ The request body is of type CancelRequest.
 
 This method creates an API Key for your subaccounts. Contact with Account Manager, in order to give you more information about how getting an API Key. Thanks to this method, you can provide your subaccounts with an API Key that they can use.
 
-## Create Key Method [/omni/v1/CreateKey{?username}]
+## Create Key Method [/omni/v1/CreateKey]
 
 ### Create Key Method [POST]            
             
