@@ -11,7 +11,7 @@ xhr.addEventListener("readystatechange", function () {
 
 xhr.open("POST", "https://services.yuboto.com/omni/v1/Balance");
 xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-xhr.setRequestHeader("Authorization", "Basic QUZCNUY3RjQtNkZBNS00QTcxLTkxRjktNjBBNDg1RDQ3QTk2");
+xhr.setRequestHeader("Authorization", "Basic {Base64 Encoded API KEY}");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 
 xhr.send(data);
